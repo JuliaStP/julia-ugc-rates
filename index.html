@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Julia — UGC Rate Card</title>
+<meta name="description" content="UGC rate card for Julia (@julietta.stp) — beauty, skincare and wellness UGC creator based in Orlando, FL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF3E3;
+    --ink: #0D4D6D;
+    --coral: #FF9D7A;
+    --turquoise: #7FC8B4;
+    --citrus: #FFD35A;
+    --coral-soft: #FFE4D6;
+    --turq-soft: #DFF1EC;
+    --citrus-soft: #FFF0C2;
+    --accent-text: #7A2E12;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --cream: #17211F; --ink: #F5EFE4; --coral-soft: #3A2621; --turq-soft: #17302E; --citrus-soft: #3A321A; --accent-text: #FFB79C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --cream: #17211F; --ink: #F5EFE4; --coral-soft: #3A2621; --turq-soft: #17302E; --citrus-soft: #3A321A; --accent-text: #FFB79C;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3, .display { font-family: 'Unbounded', sans-serif; line-height: 1.05; margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 520px) { .wrap { padding: 0 16px; } }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--cream) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; max-width: 1120px; margin: 0 auto; }
+  .logo { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; text-decoration: none; }
+  .logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 26px; font-weight: 500; font-size: 0.92rem; }
+  .nav-links a { text-decoration: none; opacity: 0.75; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta { background: var(--ink); color: var(--cream); padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: 0.88rem; text-decoration: none; white-space: nowrap; }
+  @media (max-width: 760px) { .nav-links { display: none; } .nav-inner { padding: 14px 16px; } }
+
+  /* ---------- HERO ---------- */
+  .hero { position: relative; padding: 64px 0 48px; overflow: hidden; }
+  .sun {
+    position: absolute; top: -150px; right: -120px; width: 440px; height: 440px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--citrus), var(--coral) 72%);
+    opacity: 0.9; z-index: 0; pointer-events: none;
+  }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 0.8fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; background: var(--turq-soft); padding: 6px 14px; border-radius: 999px; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.8rem, 8.5vw, 5rem); font-weight: 800; letter-spacing: -0.02em; }
+  .hero h1 .small { display: block; font-size: 0.42em; font-weight: 600; letter-spacing: 0; margin-top: 10px; }
+  .hero-tagline { font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 38ch; margin: 18px 0 26px; font-weight: 500; }
+  .hero-tagline .accent { color: var(--accent-text); font-weight: 600; }
+  .hero-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { font-size: 0.84rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--ink) 22%, transparent); }
+  .hero-photo {
+    aspect-ratio: 4 / 5; max-width: 340px; width: 100%; justify-self: end; position: relative;
+    border-radius: 999px 999px 24px 24px;
+    background: linear-gradient(160deg, var(--citrus), var(--coral) 55%, var(--turquoise));
+    box-shadow: 0 14px 34px rgba(13,77,109,0.18); overflow: hidden;
+  }
+  .hero-photo img { position: absolute; inset: 10px; width: calc(100% - 20px); height: calc(100% - 20px); object-fit: cover; object-position: center top; border-radius: 999px 999px 16px 16px; }
+  .hero-photo .badge {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--cream); color: var(--ink); font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 0.78rem;
+    padding: 8px 16px; border-radius: 999px; white-space: nowrap; box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  }
+  @media (max-width: 760px) {
+    .hero { padding: 44px 0 36px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-photo { justify-self: start; max-width: 260px; }
+    .sun { width: 300px; height: 300px; top: -120px; right: -120px; }
+  }
+
+  section { padding: 56px 0; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 800; }
+  .section-head p { margin: 0; max-width: 42ch; opacity: 0.72; font-size: 0.95rem; }
+
+  /* ---------- NICHES ---------- */
+  .niches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .niche { padding: 22px 20px; border-radius: 16px; }
+  .niche:nth-child(1) { background: var(--coral-soft); }
+  .niche:nth-child(2) { background: var(--turq-soft); }
+  .niche:nth-child(3) { background: var(--citrus-soft); }
+  .niche:nth-child(4) { background: var(--turq-soft); }
+  .niche .n-label { font-weight: 700; font-size: 0.95rem; }
+  .niche .n-desc { margin: 6px 0 0; font-size: 0.84rem; opacity: 0.75; }
+  .worked { margin-top: 22px; font-size: 0.92rem; }
+  .worked strong { font-weight: 700; }
+  @media (max-width: 860px) { .niches { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- PACKAGES ---------- */
+  .pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .pkg {
+    border-radius: 20px; padding: 26px 22px 22px; background: var(--turq-soft);
+    display: flex; flex-direction: column; gap: 6px; position: relative;
+  }
+  .pkg.popular { background: var(--ink); color: var(--cream); }
+  .pkg .tag {
+    position: absolute; top: -12px; left: 22px; background: var(--coral); color: #3A1206;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px;
+  }
+  .pkg .qty { font-weight: 700; font-size: 0.95rem; }
+  .pkg .price { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 3.2vw, 2.4rem); letter-spacing: -0.02em; margin: 6px 0 2px; }
+  .pkg .per { font-size: 0.84rem; opacity: 0.75; }
+  .pkg .save { margin-top: auto; padding-top: 14px; font-size: 0.8rem; font-weight: 700; color: var(--accent-text); }
+  .pkg.popular .save { color: var(--citrus); }
+  @media (max-width: 900px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); row-gap: 22px; } }
+  @media (max-width: 420px) { .pkg-grid { grid-template-columns: 1fr; } }
+
+  .included { margin-top: 18px; border-radius: 20px; background: var(--coral-soft); padding: 24px 26px; }
+  .included h3 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+  .inc-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 22px; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
+  .inc-list li { position: relative; padding-left: 20px; }
+  .inc-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 9px; height: 9px; border-radius: 50%; background: var(--coral); }
+  @media (max-width: 860px) { .inc-list { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .inc-list { grid-template-columns: 1fr; } }
+
+  /* ---------- PHOTO STRIP ---------- */
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .strip img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; border-radius: 16px; }
+  .strip img:nth-child(odd) { border-radius: 999px 999px 16px 16px; }
+  @media (max-width: 760px) { .strip { grid-template-columns: repeat(3, 1fr); } }
+
+  /* ---------- PRICE LIST (add-ons) ---------- */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+  .card { border-radius: 20px; padding: 24px 24px 12px; border: 1.5px solid color-mix(in srgb, var(--ink) 14%, transparent); }
+  .card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+  .card .card-sub { font-size: 0.84rem; opacity: 0.7; margin: 0 0 10px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 13px 0; border-top: 1px dashed color-mix(in srgb, var(--ink) 18%, transparent); }
+  .row:first-of-type { border-top: 0; }
+  .row .r-name { font-weight: 600; font-size: 0.94rem; }
+  .row .r-desc { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.68; margin-top: 2px; }
+  .row .r-price { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 0.92rem; white-space: nowrap; }
+
+  /* ---------- RETAINER ---------- */
+  .retainer {
+    border-radius: 28px; padding: 40px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--citrus), var(--coral));
+    color: #3A1206; display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px; align-items: center;
+  }
+  .retainer h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); font-weight: 800; }
+  .retainer p { margin: 12px 0 0; max-width: 46ch; font-weight: 500; }
+  .ret-tiers { display: flex; flex-direction: column; gap: 10px; }
+  .ret-tier { background: rgba(255,255,255,.55); border-radius: 14px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  .ret-tier b { font-weight: 700; }
+  .ret-tier span.small { display: block; font-size: 0.8rem; opacity: .75; }
+  .ret-tier .r-price { font-family: 'Unbounded', sans-serif; font-weight: 800; white-space: nowrap; }
+  @media (max-width: 760px) { .retainer { grid-template-columns: 1fr; padding: 28px 20px; } }
+
+  /* ---------- PROCESS ---------- */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: s; }
+  .step { border-radius: 16px; padding: 20px 18px; background: var(--turq-soft); }
+  .step:nth-child(even) { background: var(--coral-soft); }
+  .step .s-num { font-family: 'Unbounded', sans-serif; font-weight: 800; color: var(--coral); font-size: 0.95rem; }
+  .step h3 { font-family: 'Inter', sans-serif; font-size: 0.96rem; font-weight: 700; margin: 8px 0 4px; }
+  .step p { margin: 0; font-size: 0.82rem; opacity: 0.74; }
+  @media (max-width: 960px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .steps { grid-template-columns: 1fr; } }
+
+  .terms { margin: 20px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; font-size: 0.86rem; opacity: 0.8; }
+  .terms li { padding-left: 16px; position: relative; }
+  .terms li::before { content: "—"; position: absolute; left: 0; }
+  @media (max-width: 760px) { .terms { grid-template-columns: 1fr; } }
+
+  /* ---------- CONTACT ---------- */
+  .contact { background: var(--turq-soft); border-radius: 28px; max-width: 984px; margin: 0 auto; padding: 56px 40px; text-align: center; }
+  .contact h2 { font-size: clamp(1.8rem, 4.4vw, 2.6rem); }
+  .contact p { max-width: 44ch; margin: 14px auto 26px; opacity: 0.82; }
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary { padding: 13px 26px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-secondary { border: 1.5px solid color-mix(in srgb, var(--ink) 30%, transparent); }
+  .contact-links { margin-top: 22px; display: flex; justify-content: center; gap: 22px; font-size: 0.9rem; font-weight: 500; flex-wrap: wrap; }
+  .contact-links a { text-decoration: none; opacity: 0.8; }
+  .contact-links a:hover { opacity: 1; }
+  @media (max-width: 520px) { .contact { padding: 40px 20px; border-radius: 22px; } }
+
+  footer { text-align: center; padding: 28px 28px 44px; font-size: 0.78rem; opacity: 0.55; }
+
+  @media print {
+    nav { position: static; }
+    section { padding: 28px 0; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">julia<span>.</span></a>
+    <div class="nav-links">
+      <a href="#packages">Packages</a>
+      <a href="#addons">Add-ons</a>
+      <a href="#retainer">Monthly</a>
+      <a href="#process">Process</a>
+      <a href="https://juliastp.github.io/julia-ugc-kit/portfolio.html" target="_blank" rel="noopener">Portfolio</a>
+    </div>
+    <a class="nav-cta" href="mailto:julietta.stp@gmail.com?subject=UGC%20collaboration">Book a collab</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Rate card · 2026</span>
+      <h1>Julia<span class="small">UGC Creator</span></h1>
+      <p class="hero-tagline">Beauty, skincare and wellness content that <span class="accent">feels like a friend's recommendation</span> — and is built to sell, not just to get views.</p>
+      <div class="hero-meta">
+        <span class="chip">Orlando, FL</span>
+        <span class="chip">@julietta.stp</span>
+        <span class="chip">English · Russian</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/port_1.jpg" alt="Julia holding a laptop in a bright room with plants">
+      <span class="badge">from $400 / video</span>
+    </div>
+  </div>
+</header>
+
+<section id="niches" style="padding-top: 24px;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I create</h2>
+      <p>Vertical 9:16 UGC for TikTok, Reels, paid ads and product pages.</p>
+    </div>
+    <div class="niches">
+      <div class="niche"><div class="n-label">Face skincare</div><p class="n-desc">Routines, textures, before/after, GRWM</p></div>
+      <div class="niche"><div class="n-label">Nails &amp; manicure</div><p class="n-desc">Polish swatches, at-home manicure, ASMR</p></div>
+      <div class="niche"><div class="n-label">Wellness &amp; supplements</div><p class="n-desc">Daily rituals, vitamins, testimonials</p></div>
+      <div class="niche"><div class="n-label">Functional drinks</div><p class="n-desc">Morning routines, taste tests, lifestyle</p></div>
+    </div>
+    <p class="worked"><strong>Created content for:</strong> Missha · Celdot · Ondo Beauty 36.5</p>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>UGC video packages</h2>
+      <p>15–60 second edited videos. Bundle more videos, pay less per video.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg">
+        <div class="qty">1 UGC video</div>
+        <div class="price">$400</div>
+        <div class="per">$400 per video</div>
+        <div class="save">Best for a first test</div>
+      </div>
+      <div class="pkg">
+        <div class="qty">2 UGC videos</div>
+        <div class="price">$750</div>
+        <div class="per">$375 per video</div>
+        <div class="save">Save $50</div>
+      </div>
+      <div class="pkg popular">
+        <span class="tag">Most popular</span>
+        <div class="qty">3 UGC videos</div>
+        <div class="price">$1,050</div>
+        <div class="per">$350 per video</div>
+        <div class="save">Save $150 · ideal for ad testing</div>
+      </div>
+      <div class="pkg">
+        <div class="qty">5 UGC videos</div>
+        <div class="price">$1,600</div>
+        <div class="per">$320 per video</div>
+        <div class="save">Save $400</div>
+      </div>
+    </div>
+
+    <div class="included">
+      <h3>Every video includes</h3>
+      <ul class="inc-list">
+        <li>Concept &amp; script, approved by you before filming</li>
+        <li>Scroll-stopping hook + clear call to action</li>
+        <li>Filming, editing, text overlays &amp; captions</li>
+        <li>Royalty-free music where needed</li>
+        <li>1 round of revisions</li>
+        <li>Organic usage on your brand channels</li>
+        <li>Delivery in 7–10 days after the product arrives</li>
+        <li>Ready-to-post 9:16 HD file</li>
+        <li>Optional: subtitles burned in or clean version</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding: 8px 0;">
+  <div class="wrap">
+    <div class="strip">
+      <img src="images/IMG_0649.jpg" alt="Pink nail polish bottles in sunlight" loading="lazy">
+      <img src="images/IMG_1646.jpg" alt="Julia applying a skincare tube" loading="lazy">
+      <img src="images/IMG_1718.jpg" alt="Holding a jar of skincare pads" loading="lazy">
+      <img src="images/IMG_1557.jpg" alt="Functional drink with fruit on a kitchen counter" loading="lazy">
+      <img src="images/IMG_1811.jpg" alt="Face serum with a rose quartz gua sha" loading="lazy">
+      <img src="images/IMG_1849.jpg" alt="Julia holding a supplement bottle" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="addons">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Add-ons &amp; usage</h2>
+      <p>Running my content as ads? Usage is priced on top of the video fee, per video.</p>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <h3>Usage rights</h3>
+        <p class="card-sub">% of the video fee, per video</p>
+        <div class="row"><div class="r-name">Paid ads — 30 days<span class="r-desc">Meta, TikTok, YouTube ads run from your account</span></div><div class="r-price">+30%</div></div>
+        <div class="row"><div class="r-name">Paid ads — 90 days</div><div class="r-price">+60%</div></div>
+        <div class="row"><div class="r-name">Paid ads — 6 months</div><div class="r-price">+100%</div></div>
+        <div class="row"><div class="r-name">Whitelisting / Spark Ads<span class="r-desc">Ads run from my @julietta.stp handle</span></div><div class="r-price">+25% / mo</div></div>
+        <div class="row"><div class="r-name">Perpetual / buyout</div><div class="r-price">On request</div></div>
+      </div>
+      <div class="card">
+        <h3>Extras</h3>
+        <p class="card-sub">Flat fee unless noted</p>
+        <div class="row"><div class="r-name">5 UGC photos<span class="r-desc">Edited product &amp; lifestyle shots</span></div><div class="r-price">$225</div></div>
+        <div class="row"><div class="r-name">3 extra hook variations<span class="r-desc">Same video, 3 different openings to A/B test</span></div><div class="r-price">$75 / video</div></div>
+        <div class="row"><div class="r-name">Raw footage<span class="r-desc">All unedited clips from the shoot</span></div><div class="r-price">$75 / video</div></div>
+        <div class="row"><div class="r-name">Rush delivery (72 hours)</div><div class="r-price">$100</div></div>
+        <div class="row"><div class="r-name">Additional revision round</div><div class="r-price">$50</div></div>
+        <div class="row"><div class="r-name">Post on my Instagram / TikTok<span class="r-desc">Collab post + story share</span></div><div class="r-price">$150</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="retainer">
+  <div class="wrap">
+    <div class="retainer">
+      <div>
+        <h2>Monthly content partnership</h2>
+        <p>Fresh creative every month for brands that test ads often. Locked-in rate, priority filming slots, and a consistent face for your brand.</p>
+      </div>
+      <div class="ret-tiers">
+        <div class="ret-tier"><div><b>4 videos / month</b><span class="small">$325 per video</span></div><span class="r-price">$1,300</span></div>
+        <div class="ret-tier"><div><b>8 videos / month</b><span class="small">$300 per video</span></div><span class="r-price">$2,400</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How we work</h2>
+      <p>Simple, clear, on schedule.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="s-num">01</div><h3>Brief</h3><p>You share the product, goals, key messages and references.</p></div>
+      <div class="step"><div class="s-num">02</div><h3>Agreement</h3><p>We confirm the package, usage and timeline. 50% deposit to book.</p></div>
+      <div class="step"><div class="s-num">03</div><h3>Script</h3><p>I send the concept and script for your approval.</p></div>
+      <div class="step"><div class="s-num">04</div><h3>Filming</h3><p>Product arrives, I film and edit. Delivery in 7–10 days.</p></div>
+      <div class="step"><div class="s-num">05</div><h3>Final files</h3><p>1 revision round, then the remaining 50% and final files.</p></div>
+    </div>
+    <ul class="terms">
+      <li>Product is provided by the brand and is not part of the fee.</li>
+      <li>Usage periods start on the date the ad first goes live.</li>
+      <li>Gifted-only collaborations are considered case by case.</li>
+      <li>Custom packages available — just ask.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" style="padding-bottom: 32px;">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's create together</h2>
+      <p>Tell me about your product and what you want the content to do. I'll reply within 24 hours with a plan and a quote.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="mailto:julietta.stp@gmail.com?subject=UGC%20collaboration">Email me</a>
+        <a class="btn-secondary" href="https://juliastp.github.io/julia-ugc-kit/portfolio.html" target="_blank" rel="noopener">See my portfolio</a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:julietta.stp@gmail.com">julietta.stp@gmail.com</a>
+        <a href="https://instagram.com/julietta.stp" target="_blank" rel="noopener">Instagram @julietta.stp</a>
+        <a href="https://tiktok.com/@julietta.stp" target="_blank" rel="noopener">TikTok @julietta.stp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Rates in USD, valid through 2026. Rates and availability subject to change.</footer>
+
+</body>
+</html>
